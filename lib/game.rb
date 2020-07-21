@@ -2,12 +2,11 @@ class Game
   attr_accessor :human_player, :ennemies
 
   def initialize(name)
+    # Toi et tes ennemies
     @human_player = HumanPlayer.new(name)
-
-    # Les ennemies :
     @ennemies = Array.new
-
     ["José", "Josiane", "Romuald", "Stefany"].each { | name | @ennemies << Player.new(name) }
+
   end
 
 
@@ -82,6 +81,7 @@ class Game
 
   def ennemies_attacks
     # Chaque ennemi m'attaque successivement à condition qu'il soit encore vivant !
+    puts "\n\n/!\\ Tes ennemis t'attaquent !\n\n"
     @ennemies.each { | player | player.attacks(@human_player) if player.life_points > 0  }
   end
 
