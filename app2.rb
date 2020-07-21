@@ -41,10 +41,6 @@ def human_choice(ennemies)
   print "#{i} - "
   player.show_state
   end
-  # A utiliser pour après :
-  # ennemies.each_with_index do | player, i |
-  # puts "#{i} - #{player.name} a #{player.life_points} points de vie"
-  # end
 
   print "your choice > "
   letter = STDIN.gets.chomp.to_s
@@ -93,15 +89,11 @@ def perform
 
   ["José", "Josiane"].each { | name | ennemies << Player.new(name) }
   
-  # puts " out : #{ennemies[0].name} et #{ennemies[1].name}"
-
   # ---------------------------------------------------------------------------------------------
   # COMBAT A MORT : Tant que l'humain reste vivant
   #                 et qu'il existe un ennemi vivant, on reste dans le game !
   # ---------------------------------------------------------------------------------------------
   while humanplayer.life_points > 0 && (ennemies[0].life_points > 0 || ennemies[1].life_points > 0) do
-
-    #tester ennemies.all?{|player| player.life_points > 0 }  # return false si un est nill    
 
     #1/ On affiche l'état de santé :
     humanplayer.show_state
@@ -126,7 +118,6 @@ def perform
   end
 
   ending_message(humanplayer.life_points)
-
 
 end
 
