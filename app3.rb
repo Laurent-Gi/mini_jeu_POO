@@ -4,19 +4,19 @@ Bundler.require
 require_relative 'lib/game'
 require_relative 'lib/player'
 
-
 # - - - - - - - - - - - - - - - - - - - - #
 #       V E R S I O N   3 . 0             #
 # - - - - - - - - - - - - - - - - - - - - #
 
+
 def starting_message
   puts "\n" + "="*80 + "\n\n"
-  puts " Cette fois-ci, on ne rigole plus ! "
-  puts " C'est un vrai GAME avec 4 ennemies ?\n\n"
-  puts " Alors, 'SAUVE TA POO' Si tu le peux encore !\n\n"
-  puts " Le but du jeu est d'être le dernier survivant !\n\n"
-  puts " Car...    seul  toi  doit  survivre  ! "
-  puts "\n" + "="*80 + "\n"
+  puts " Cette fois-ci, on ne rigole plus ! ".center(80)
+  puts " C'est un vrai GAME avec 4 ennemies ?\n\n".center(80)
+  puts " Alors, 'SAUVE TA POO' Si tu le peux encore !\n\n".center(80)
+  puts " Le but du jeu est d'être le dernier survivant !\n\n".center(80)
+  puts " Car...    seul  toi  doit  survivre  ! ".center(80)
+  puts "\n" + "="*80 + "\n\n"
 end
 
 
@@ -25,7 +25,7 @@ def get_user_name_from_stdin
   puts "Quel est ton prénom ?"
   print "> "
   first_name = STDIN.gets.chomp.to_s
-  first_name.length > 0 ? first_name : "habitant de la terre"
+  first_name.length > 0 ? first_name : "Habitant_de_la_terre"
 end
 
 
@@ -36,9 +36,9 @@ def perform
 
   username = get_user_name_from_stdin
 
-  # -----------------------------------------------------
+  # ------------------------------------------------------
   # 1 On initialise une partie : Création d'un objet Game
-  # -----------------------------------------------------
+  # ------------------------------------------------------
   my_game = Game.new(username)
 
   # ---------------------------------------------------------------------------------------------
@@ -48,17 +48,20 @@ def perform
 
   while my_game.is_still_ongoing? do
 
-    # 1/ On affiche l'état de santé :
+    # 1/ On affiche les états de santé :
+    # ----------------------------------
     my_game.show_players
 
     # 2/ On affiche le menu, et on récupère le choix :
+    # ------------------------------------------------
     choice = my_game.menu
 
     # 3/ On transmet le choix :
+    # -------------------------
     my_game.menu_choice(choice)
 
     # 4/ Riposte des ennemies :
-    puts "\n\nLes autres joueurs t'attaquent !\n\n"
+    # -------------------------
     my_game.ennemies_attacks
 
   end

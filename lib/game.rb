@@ -26,27 +26,30 @@ class Game
 
   def show_players
     @human_player.show_state
-    puts "Il reste #{@ennemies.size} ennemi(s)"
+    puts "Il reste #{@ennemies.size} ennemi(s)".center(80)
+    puts "~~~~~~~~~~~~~~~~~~~~".center(80)
     @ennemies.each { |player| player.show_state } 
   end
 
 
   def menu
+    puts " "
+    puts "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"
     puts "Quelle action veux-tu effectuer ?"
     puts " "
-    puts "a - chercher une meilleure arme "
-    puts "s - chercher à se soigner "
+    puts "a - Chercher une meilleure arme "
+    puts "s - Chercher à se soigner "
     puts " "
-    puts "attaquer un joueur en vue :"
+    puts "Attaquer un joueur en vue :"
     @ennemies.each_with_index do | player, i |
     print "#{i} - "
-    player.show_state
+    player.show_state(20)
     end
 
-
+    puts "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"
     print "your choice > "
     letter = STDIN.gets.chomp.to_s
-    puts "Lettre #{letter}"
+    # puts "Lettre #{letter}"
 
     # La réponse
     while true
@@ -55,7 +58,8 @@ class Game
       return letter if letter == "1" && @ennemies.size > 1
       return letter if letter == "2" && @ennemies.size > 2
       return letter if letter == "3" && @ennemies.size > 3
-      puts "Merci de donner un choix valide : une lettre : a, s ou le chiffre proposé pour l'ennemi s'il est encore parmi nous (0,1,2,3) "
+      puts "Merci de donner un choix valide : une lettre"
+      puts "'a', 's' ou le chiffre proposé pour l'ennemi - s'il est encore parmi nous (0,1,2,3)-"
       print "your choice > "
       letter = STDIN.gets.chomp.to_s
     end
@@ -81,18 +85,19 @@ class Game
 
   def ennemies_attacks
     # Chaque ennemi m'attaque successivement à condition qu'il soit encore vivant !
-    puts "\n\n/!\\ Tes ennemis t'attaquent !\n\n"
-    @ennemies.each { | player | player.attacks(@human_player) if player.life_points > 0  }
+    puts "\n\n"
+    puts "/!\\ Tes ennemis t'attaquent !\n\n".center(80) if @ennemies.size > 0
+    @ennemies.each { | player | player.attacks(@human_player) if @human_player.life_points > 0  }
   end
 
 
   def end
     puts "\n" + "="*80 + "\n\n"
-    puts "  L a   p a r t i e   e s t   t e r m i n é e  !  !  ! \n\n"
+    puts "  L a   p a r t i e   e s t   t e r m i n é e  !  !  ! \n\n".center(80)
     if @human_player.life_points > 0
-      puts "    B R A V O   !   T U   A S   G A G N E   ! "
+      puts "    B R A V O   !   T U   A S   G A G N E   ! ".center(80)
     else
-      puts "    L o s e r   !   T u   a s   p e r d u   !"
+      puts "    L o s e r   !   T u   a s   p e r d u   !".center(80)
     end
     puts "\n\n" + "="*80 + "\n"
   end

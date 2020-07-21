@@ -14,6 +14,7 @@ def fight_state(player1, player2)
   puts " "
   puts "Voici l'état de nos joueurs".center(80)
   puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~".center(80)
+  player1.show_state
   player2.show_state
   puts "\n"
 end

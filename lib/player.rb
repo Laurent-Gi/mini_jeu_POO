@@ -6,11 +6,11 @@ class Player
     @life_points = 10
   end
 
-  def show_state
+  def show_state(nb=80)
     if @life_points <= 0 
-      puts "le joueur #{@name} a été tué !".center(80)
+      puts "le joueur #{@name} a été tué !".center(nb)
     else
-      puts "#{@name} a #{@life_points} points de vie.".center(80)
+      puts "#{@name} a #{@life_points} points de vie.".center(nb)
     end
   end
 
@@ -50,7 +50,8 @@ class HumanPlayer < Player
     if @life_points <=0
       puts "le joueur #{@name} a été tué !".center(80)
     else
-      puts "\n\n#{@name} a #{@life_points} points de vie, et une arme de niveau #{@weapon_level}.\n\n".center(80)
+      puts "\n\n"
+      puts "#{@name} a #{@life_points} points de vie, et une arme de niveau #{@weapon_level}.\n\n".center(80)
     end
   end
 
@@ -76,7 +77,8 @@ class HumanPlayer < Player
 
   def search_health_pack
     # Recherche un pack de points de vie : de façon aléatoire
-    puts "Tu recherches des points de vie !\nTon niveau de chance est de #{pack_chance = rand(1..6)}".center(80)
+    puts "Tu recherches des points de vie !\n".center(80)
+    puts "Ton niveau de chance est de #{pack_chance = rand(1..6)}".center(80)
   
     if pack_chance ==1
       puts "Tu n'as donc rien trouvé... dommage !".center(80)
