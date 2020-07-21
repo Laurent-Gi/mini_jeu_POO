@@ -7,7 +7,11 @@ class Player
   end
 
   def show_state
-    puts "#{@name} a #{@life_points} points de vie."
+    if @life_points <= 0 
+      puts "le joueur #{@name} a été tué !"
+    else
+      puts "#{@name} a #{@life_points} points de vie."
+    end
   end
 
   def gets_damage(injury_level)
@@ -43,7 +47,11 @@ class HumanPlayer < Player
   end
 
   def show_state
-    puts "#{@name} a #{@life_points} points de vie, et une arme de niveau #{@weapon_level}."
+    if @life_points <=0
+      puts "le joueur #{@name} a été tué !"
+    else
+      puts "\n\n#{@name} a #{@life_points} points de vie, et une arme de niveau #{@weapon_level}.\n\n"
+    end
   end
 
   def compute_damage
@@ -77,7 +85,7 @@ class HumanPlayer < Player
       # (@life_points + 50 > 100) ? @life_points = 100 : @life_points += 50
       add_life_points(50)
     else
-      "Waow, tu as trouvé un pack de +80 points de vie !"
+      puts "Waow, tu as trouvé un pack de +80 points de vie !"
       # (@life_points + 80 > 100) ? @life_points = 100 : @life_points += 80
       add_life_points(80)
     end
