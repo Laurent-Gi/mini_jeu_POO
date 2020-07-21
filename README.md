@@ -12,7 +12,8 @@
              -  bundle install
                                 pour que l'environnement soit prêt.
  
- 
+
+
 mini_jeu_POO
 ├── lib
 │   ├── player.rb
@@ -22,6 +23,7 @@ mini_jeu_POO
 ├── Gemfile
 ├── Gemfile.lock
 └── Autres fichiers (.env, .gitignore)
+
 
 
 Execute : *app.rb*, *app2.rb*, & *app3* : 3 programs to run for the V1.0 V2.0 and V3.0 versions.
