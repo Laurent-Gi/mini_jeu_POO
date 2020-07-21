@@ -68,6 +68,9 @@ class Game
 
   def menu_choice(choix)
 
+    system 'clear'
+    puts "\n\n"
+    puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n".center(80)
     if choix == "a"
       @human_player.search_weapon
     elsif choix == "s"

@@ -21,6 +21,7 @@ end
 
 # Orchestration d'un combat entre Josiane et José
 # ------------------------------------------------
+system 'clear'
 puts "\n\n" + "="*80 + "\n\n\n"
 puts "Voici venue le temps du combat !".center(80)
 puts "\n\n" + "="*80

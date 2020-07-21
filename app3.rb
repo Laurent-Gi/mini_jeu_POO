@@ -10,6 +10,7 @@ require_relative 'lib/player'
 
 
 def starting_message
+  system 'clear'
   puts "\n" + "="*80 + "\n\n"
   puts " Cette fois-ci, on ne rigole plus ! ".center(80)
   puts " C'est un vrai GAME avec 4 ennemies ?\n\n".center(80)

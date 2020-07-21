@@ -10,6 +10,7 @@ require_relative 'lib/player'
 # - - - - - - - - - - - - - - - - - - - - #
 
 def starting_message
+  system 'clear'
   puts "\n" + "="*80 + "\n\n"
   puts " T'en as marre d'être traité(e) comme un OBJET ? ".center(80)
   puts " Tu veux t'battre ? Peter la gueule à tout le monde ?\n\n".center(80)
